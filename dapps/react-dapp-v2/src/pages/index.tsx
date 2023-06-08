@@ -126,68 +126,68 @@ const Home: NextPage = () => {
   }
   const getCardanoActions = (): AccountAction[] => {
 
-    // const onSignTx = async (chainId: string, address: string) => {
-    //   openRequestModal()
-    //   await cardanoRpc.testSignTx(chainId, address)
-    // }
-    // const onSignData = async (chainId: string, address: string) => {
-    //   openRequestModal()
-    //   await cardanoRpc.testSignData(chainId, address)
-    // }
-    // const onSubmitTx = async (chainId: string, address: string) => {
-    //   openRequestModal()
-    //   await cardanoRpc.testSubmitTx(chainId, address)
-    // }
+    const onSignTx = async (chainId: string, address: string) => {
+      openRequestModal()
+      await cardanoRpc.testSignTx(chainId, address)
+    }
+    const onSignData = async (chainId: string, address: string) => {
+      openRequestModal()
+      await cardanoRpc.testSignData(chainId, address)
+    }
+    const onSubmitTx = async (chainId: string, address: string) => {
+      openRequestModal()
+      await cardanoRpc.testSubmitTx(chainId, address)
+    }
     const onGetBalance = async (chainId: string, address: string) => {
       openRequestModal()
       await cardanoRpc.testGetBalance(chainId, address)
     }
-    // const onGetCollateral = async (chainId: string, address: string) => {
-    //   openRequestModal()
-    //   await cardanoRpc.testGetCollateral(chainId, address)
-    // }
-    // const onGetUtxos = async (chainId: string, address: string) => {
-    //   openRequestModal()
-    //   await cardanoRpc.testGetUtxos(chainId, address)
-    // }
-    // const onGetNetworkId = async (chainId: string, address: string) => {
-    //   openRequestModal()
-    //   await cardanoRpc.testGetNetworkId(chainId, address)
-    // }
-    // const onGetUsedAddresses = async (chainId: string, address: string) => {
-    //   openRequestModal()
-    //   await cardanoRpc.testGetUsedAddresses(chainId, address)
-    // }
-    // const onGetUnusedAddresses = async (chainId: string, address: string) => {
-    //   openRequestModal()
-    //   await cardanoRpc.testGetUnusedAddresses(chainId, address)
-    // }
-    // const onGetChangeAddress = async (chainId: string, address: string) => {
-    //   openRequestModal()
-    //   await cardanoRpc.testGetChangeAddress(chainId, address)
-    // }
-    // const onGetRewardAddress = async (chainId: string, address: string) => {
-    //   openRequestModal()
-    //   await cardanoRpc.testGetRewardAddress(chainId, address)
-    // }
-    // const onGetRewardAddresses = async (chainId: string, address: string) => {
-    //   openRequestModal()
-    //   await cardanoRpc.testGetRewardAddresses(chainId, address)
-    // }
+    const onGetCollateral = async (chainId: string, address: string) => {
+      openRequestModal()
+      await cardanoRpc.testGetCollateral(chainId, address)
+    }
+    const onGetUtxos = async (chainId: string, address: string) => {
+      openRequestModal()
+      await cardanoRpc.testGetUtxos(chainId, address)
+    }
+    const onGetNetworkId = async (chainId: string, address: string) => {
+      openRequestModal()
+      await cardanoRpc.testGetNetworkId(chainId, address)
+    }
+    const onGetUsedAddresses = async (chainId: string, address: string) => {
+      openRequestModal()
+      await cardanoRpc.testGetUsedAddresses(chainId, address)
+    }
+    const onGetUnusedAddresses = async (chainId: string, address: string) => {
+      openRequestModal()
+      await cardanoRpc.testGetUnusedAddresses(chainId, address)
+    }
+    const onGetChangeAddress = async (chainId: string, address: string) => {
+      openRequestModal()
+      await cardanoRpc.testGetChangeAddress(chainId, address)
+    }
+    const onGetRewardAddress = async (chainId: string, address: string) => {
+      openRequestModal()
+      await cardanoRpc.testGetRewardAddress(chainId, address)
+    }
+    const onGetRewardAddresses = async (chainId: string, address: string) => {
+      openRequestModal()
+      await cardanoRpc.testGetRewardAddresses(chainId, address)
+    }
 
     return [
-      // { method: DEFAULT_CIP34_METHODS.CARDANO_SIGN_TX , callback: onSignTx},
-      // { method: DEFAULT_CIP34_METHODS.CARDANO_SIGN_DATA , callback: onSignData},
-      // { method: DEFAULT_CIP34_METHODS.CARDANO_SUBMIT_TX , callback: onSubmitTx},
+      { method: DEFAULT_CIP34_METHODS.CARDANO_SIGN_TX , callback: onSignTx},
+      { method: DEFAULT_CIP34_METHODS.CARDANO_SIGN_DATA , callback: onSignData},
+      { method: DEFAULT_CIP34_METHODS.CARDANO_SUBMIT_TX , callback: onSubmitTx},
       { method: DEFAULT_CIP34_METHODS.CARDANO_GET_BALANCE , callback: onGetBalance},
-      // { method: DEFAULT_CIP34_METHODS.CARDANO_GET_COLLATERAL , callback: onGetCollateral},
-      // { method: DEFAULT_CIP34_METHODS.CARDANO_GET_UTXOS , callback: onGetUtxos},
-      // { method: DEFAULT_CIP34_METHODS.CARDANO_GET_NETWORK_ID , callback: onGetNetworkId},
-      // { method: DEFAULT_CIP34_METHODS.CARDANO_GET_USED_ADDRESSES , callback: onGetUsedAddresses},
-      // { method: DEFAULT_CIP34_METHODS.CARDANO_GET_UNUSED_ADDRESSES , callback: onGetUnusedAddresses},
-      // { method: DEFAULT_CIP34_METHODS.CARDANO_GET_CHANGE_ADDRESS , callback: onGetChangeAddress},
-      // { method: DEFAULT_CIP34_METHODS.CARDANO_GET_REWARD_ADDRESS , callback: onGetRewardAddress},
-      // { method: DEFAULT_CIP34_METHODS.CARDANO_GET_REWARD_ADDRESSES,  callback: onGetRewardAddresses},
+      { method: DEFAULT_CIP34_METHODS.CARDANO_GET_COLLATERAL , callback: onGetCollateral},
+      { method: DEFAULT_CIP34_METHODS.CARDANO_GET_UTXOS , callback: onGetUtxos},
+      { method: DEFAULT_CIP34_METHODS.CARDANO_GET_NETWORK_ID , callback: onGetNetworkId},
+      { method: DEFAULT_CIP34_METHODS.CARDANO_GET_USED_ADDRESSES , callback: onGetUsedAddresses},
+      { method: DEFAULT_CIP34_METHODS.CARDANO_GET_UNUSED_ADDRESSES , callback: onGetUnusedAddresses},
+      { method: DEFAULT_CIP34_METHODS.CARDANO_GET_CHANGE_ADDRESS , callback: onGetChangeAddress},
+      { method: DEFAULT_CIP34_METHODS.CARDANO_GET_REWARD_ADDRESS , callback: onGetRewardAddress},
+      { method: DEFAULT_CIP34_METHODS.CARDANO_GET_REWARD_ADDRESSES,  callback: onGetRewardAddresses},
 
     ];
   }

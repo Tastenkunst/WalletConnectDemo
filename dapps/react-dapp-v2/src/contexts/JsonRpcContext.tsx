@@ -73,18 +73,18 @@ interface IContext {
     testSignTypedData: TRpcRequestCallback;
   };
   cardanoRpc: {
-    // testSignTx: TRpcRequestCallback,
-    // testSignData: TRpcRequestCallback,
-    // testSubmitTx: TRpcRequestCallback,
+    testSignTx: TRpcRequestCallback,
+    testSignData: TRpcRequestCallback,
+    testSubmitTx: TRpcRequestCallback,
     testGetBalance: TRpcRequestCallback,
-    // testGetCollateral: TRpcRequestCallback,
-    // testGetUtxos: TRpcRequestCallback,
-    // testGetNetworkId: TRpcRequestCallback,
-    // testGetUsedAddresses: TRpcRequestCallback,
-    // testGetUnusedAddresses: TRpcRequestCallback,
-    // testGetChangeAddress: TRpcRequestCallback,
-    // testGetRewardAddress: TRpcRequestCallback,
-    // testGetRewardAddresses: TRpcRequestCallback,
+    testGetCollateral: TRpcRequestCallback,
+    testGetUtxos: TRpcRequestCallback,
+    testGetNetworkId: TRpcRequestCallback,
+    testGetUsedAddresses: TRpcRequestCallback,
+    testGetUnusedAddresses: TRpcRequestCallback,
+    testGetChangeAddress: TRpcRequestCallback,
+    testGetRewardAddress: TRpcRequestCallback,
+    testGetRewardAddresses: TRpcRequestCallback,
   }
   cosmosRpc: {
     testSignDirect: TRpcRequestCallback;
@@ -1277,6 +1277,7 @@ export function JsonRpcContextProvider({
   };
 
   const cardanoRpc = {
+
     testGetBalance: _createJsonRpcRequestHandler(
       async (chainId: string, address: string) => {
         const caipAccountAddress = `${chainId}:${address}`;
@@ -1285,8 +1286,6 @@ export function JsonRpcContextProvider({
         );
         if (account === undefined)
           throw new Error(`Account for ${caipAccountAddress} not found`);
-
-        // const tx = await formatTestTransaction(account);
 
         const result = await client!.request<string>({
           topic: session!.topic,
@@ -1305,7 +1304,222 @@ export function JsonRpcContextProvider({
           result,
         };
       }
-    )
+    ),
+
+    testSignTx: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+
+        const result = 'NOT IMPLEMENTED'
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_SIGN_TX,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    ),
+
+    testSignData: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+
+        const result = 'NOT IMPLEMENTED'
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_SIGN_DATA,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    ),
+    testSubmitTx: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+
+        const result = 'NOT IMPLEMENTED'
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_SUBMIT_TX,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    ),
+
+
+    testGetCollateral: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+
+        const result = await client!.request<string>({
+          topic: session!.topic,
+          chainId,
+          request: {
+            method: DEFAULT_CIP34_METHODS.CARDANO_GET_COLLATERAL,
+            params: [address],
+          },
+        });
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_GET_COLLATERAL,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    ),
+    testGetUtxos: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+
+        const result = await client!.request<string>({
+          topic: session!.topic,
+          chainId,
+          request: {
+            method: DEFAULT_CIP34_METHODS.CARDANO_GET_UTXOS,
+            params: [address],
+          },
+        });
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_GET_UTXOS,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    ),
+    testGetNetworkId: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+
+        const result = await client!.request<string>({
+          topic: session!.topic,
+          chainId,
+          request: {
+            method: DEFAULT_CIP34_METHODS.CARDANO_GET_NETWORK_ID,
+            params: [address],
+          },
+        });
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_GET_NETWORK_ID,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    ),
+    testGetUsedAddresses: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+
+        const result = await client!.request<string>({
+          topic: session!.topic,
+          chainId,
+          request: {
+            method: DEFAULT_CIP34_METHODS.CARDANO_GET_USED_ADDRESSES,
+            params: [address],
+          },
+        });
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_GET_USED_ADDRESSES,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    ),
+    testGetUnusedAddresses: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+
+        const result = await client!.request<string>({
+          topic: session!.topic,
+          chainId,
+          request: {
+            method: DEFAULT_CIP34_METHODS.CARDANO_GET_UNUSED_ADDRESSES,
+            params: [address],
+          },
+        });
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_GET_UNUSED_ADDRESSES,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    ),
+    testGetChangeAddress: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+
+        const result = await client!.request<string>({
+          topic: session!.topic,
+          chainId,
+          request: {
+            method: DEFAULT_CIP34_METHODS.CARDANO_GET_CHANGE_ADDRESS,
+            params: [address],
+          },
+        });
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_GET_CHANGE_ADDRESS,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    ),
+    testGetRewardAddress: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+
+        const result = await client!.request<string>({
+          topic: session!.topic,
+          chainId,
+          request: {
+            method: DEFAULT_CIP34_METHODS.CARDANO_GET_REWARD_ADDRESS,
+            params: [address],
+          },
+        });
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_GET_REWARD_ADDRESS,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    ),
+    testGetRewardAddresses: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+
+        const result = await client!.request<string>({
+          topic: session!.topic,
+          chainId,
+          request: {
+            method: DEFAULT_CIP34_METHODS.CARDANO_GET_REWARD_ADDRESSES,
+            params: [address],
+          },
+        });
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_GET_REWARD_ADDRESSES,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    ),
+
   };
 
   return (
