@@ -132,6 +132,10 @@ export const apiGetAccountNonce = async (
 ): Promise<number> => {
   const ethChainId = chainId.split(":")[1];
   const { baseURL } = rpcProvidersByChainId[Number(ethChainId)];
+
+  console.log('apiGetAccountNonce ethChainId', ethChainId)
+  console.log('apiGetAccountNonce baseURL', baseURL)
+
   const response = await api.post(baseURL, {
     jsonrpc: "2.0",
     method: "eth_getTransactionCount",

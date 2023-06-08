@@ -15,6 +15,7 @@ import { NearChainData } from "../chains/near";
 import { CosmosChainData } from "../chains/cosmos";
 import { EIP155ChainData } from "../chains/eip155";
 import { TezosChainData } from "../chains/tezos";
+import { CardanoChainData } from "../chains/cardano";
 
 /**
  * Types
@@ -40,6 +41,9 @@ export function ChainDataContextProvider({
 
   const loadChainData = async () => {
     const namespaces = getAllChainNamespaces();
+
+    console.log('all namespaces are', namespaces)
+
     const chainData: ChainNamespaces = {};
     await Promise.all(
       namespaces.map(async (namespace) => {
@@ -68,6 +72,9 @@ export function ChainDataContextProvider({
             break;
           case "tezos":
             chains = TezosChainData;
+            break;
+          case "cip34":
+            chains = CardanoChainData;
             break;
           default:
             console.error("Unknown chain namespace: ", namespace);

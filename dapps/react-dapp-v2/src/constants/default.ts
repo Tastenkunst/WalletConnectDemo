@@ -15,6 +15,7 @@ export const DEFAULT_MAIN_CHAINS = [
   "mvx:1",
   "tron:0x2b6653dc",
   "tezos:mainnet",
+  "cip34:1-764824073",
 ];
 
 export const DEFAULT_TEST_CHAINS = [
@@ -30,6 +31,7 @@ export const DEFAULT_TEST_CHAINS = [
   "mvx:D",
   "tron:0xcd8690dc",
   "tezos:testnet",
+  "cip34:0-1",
 ];
 
 export const DEFAULT_CHAINS = [...DEFAULT_MAIN_CHAINS, ...DEFAULT_TEST_CHAINS];
@@ -127,6 +129,30 @@ export enum DEFAULT_TRON_METHODS {
 }
 
 export enum DEFAULT_TRON_EVENTS {}
+
+/**
+ * CARDANO - CIP34
+ */
+export enum DEFAULT_CIP34_METHODS {
+  CARDANO_SIGN_TX = 'cardano_signTx',
+  CARDANO_SIGN_DATA = 'cardano_signData',
+  CARDANO_SUBMIT_TX = 'cardano_submitTx',
+  CARDANO_GET_BALANCE = 'cardano_getBalance',
+  CARDANO_GET_COLLATERAL = 'cardano_getCollateral',
+  CARDANO_GET_UTXOS = 'cardano_getUtxos',
+  CARDANO_GET_NETWORK_ID = 'cardano_getNetworkId',
+  CARDANO_GET_USED_ADDRESSES = 'cardano_getUsedAddresses',
+  CARDANO_GET_UNUSED_ADDRESSES = 'cardano_getUnusedAddresses',
+  CARDANO_GET_CHANGE_ADDRESS = 'cardano_getChangeAddress',
+  CARDANO_GET_REWARD_ADDRESS = 'cardano_getRewardAddress',
+  CARDANO_GET_REWARD_ADDRESSES = 'cardano_getRewardAddresses'
+}
+
+export enum DEFAULT_CIP34_EVENTS {
+  CARDANO_CHAIN_CHANGED = 'cardano_onNetworkChange',
+  CARDANO_ACCOUNTS_CHANGED = 'cardano_onAccountChange'
+}
+
 
 /**
  * TEZOS

@@ -37,7 +37,7 @@ import {
   DEFAULT_NEAR_METHODS,
   DEFAULT_MULTIVERSX_METHODS,
   DEFAULT_TRON_METHODS,
-  DEFAULT_TEZOS_METHODS,
+  DEFAULT_TEZOS_METHODS, DEFAULT_CIP34_METHODS,
 } from "../constants";
 import { useChainData } from "./ChainDataContext";
 import { rpcProvidersByChainId } from "../../src/helpers/api";
@@ -72,6 +72,20 @@ interface IContext {
     testSignPersonalMessage: TRpcRequestCallback;
     testSignTypedData: TRpcRequestCallback;
   };
+  cardanoRpc: {
+    // testSignTx: TRpcRequestCallback,
+    // testSignData: TRpcRequestCallback,
+    // testSubmitTx: TRpcRequestCallback,
+    testGetBalance: TRpcRequestCallback,
+    // testGetCollateral: TRpcRequestCallback,
+    // testGetUtxos: TRpcRequestCallback,
+    // testGetNetworkId: TRpcRequestCallback,
+    // testGetUsedAddresses: TRpcRequestCallback,
+    // testGetUnusedAddresses: TRpcRequestCallback,
+    // testGetChangeAddress: TRpcRequestCallback,
+    // testGetRewardAddress: TRpcRequestCallback,
+    // testGetRewardAddresses: TRpcRequestCallback,
+  }
   cosmosRpc: {
     testSignDirect: TRpcRequestCallback;
     testSignAmino: TRpcRequestCallback;
@@ -1262,11 +1276,44 @@ export function JsonRpcContextProvider({
     ),
   };
 
+  const cardanoRpc = {
+    testGetBalance: _createJsonRpcRequestHandler(
+      async (chainId: string, address: string) => {
+        const caipAccountAddress = `${chainId}:${address}`;
+        const account = accounts.find(
+          (account) => account === caipAccountAddress
+        );
+        if (account === undefined)
+          throw new Error(`Account for ${caipAccountAddress} not found`);
+
+        // const tx = await formatTestTransaction(account);
+
+        const result = await client!.request<string>({
+          topic: session!.topic,
+          chainId,
+          request: {
+            method: DEFAULT_CIP34_METHODS.CARDANO_GET_BALANCE,
+            params: [address],
+          },
+        });
+
+        // format displayed result
+        return {
+          method: DEFAULT_CIP34_METHODS.CARDANO_GET_BALANCE,
+          address,
+          valid: true,
+          result,
+        };
+      }
+    )
+  };
+
   return (
     <JsonRpcContext.Provider
       value={{
         ping,
         ethereumRpc,
+        cardanoRpc,
         cosmosRpc,
         solanaRpc,
         polkadotRpc,

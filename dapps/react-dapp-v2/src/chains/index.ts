@@ -1,6 +1,7 @@
 import { JsonRpcRequest } from "@walletconnect/jsonrpc-utils";
 
 import * as eip155 from "./eip155";
+import * as cip34 from "./cardano";
 import * as cosmos from "./cosmos";
 import * as polkadot from "./polkadot";
 import * as solana from "./solana";
@@ -16,6 +17,8 @@ export function getChainMetadata(chainId: string): ChainMetadata {
   switch (namespace) {
     case "eip155":
       return eip155.getChainMetadata(chainId);
+    case "cip34":
+      return cip34.getChainMetadata(chainId);
     case "cosmos":
       return cosmos.getChainMetadata(chainId);
     case "polkadot":

@@ -6,6 +6,11 @@ export async function formatTestTransaction(account: string) {
   const [namespace, reference, address] = account.split(":");
   const chainId = `${namespace}:${reference}`;
 
+  console.log('formatTestTransaction namespace', namespace)
+  console.log('formatTestTransaction reference', reference)
+  console.log('formatTestTransaction address', address)
+  console.log('formatTestTransaction chainId', chainId)
+
   let _nonce;
   try {
     _nonce = await apiGetAccountNonce(address, chainId);
