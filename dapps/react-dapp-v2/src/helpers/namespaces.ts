@@ -16,7 +16,8 @@ import {
   DEFAULT_TRON_EVENTS,
   DEFAULT_TEZOS_METHODS,
   DEFAULT_TEZOS_EVENTS,
-  DEFAULT_CIP34_EVENTS, DEFAULT_CIP34_METHODS,
+  DEFAULT_CIP34_EVENTS,
+  DEFAULT_CIP34_METHODS,
 } from "../constants";
 
 export const getNamespacesFromChains = (chains: string[]) => {
