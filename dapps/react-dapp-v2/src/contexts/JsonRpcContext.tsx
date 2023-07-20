@@ -1292,7 +1292,7 @@ export function JsonRpcContextProvider({
           chainId,
           request: {
             method: DEFAULT_CIP34_METHODS.CARDANO_GET_BALANCE,
-            params: [address],
+            params: [],
           },
         });
 
@@ -1359,7 +1359,7 @@ export function JsonRpcContextProvider({
           chainId,
           request: {
             method: DEFAULT_CIP34_METHODS.CARDANO_GET_COLLATERAL,
-            params: [address],
+            params: [],
           },
         });
 
@@ -1380,7 +1380,7 @@ export function JsonRpcContextProvider({
           chainId,
           request: {
             method: DEFAULT_CIP34_METHODS.CARDANO_GET_UTXOS,
-            params: [address],
+            params: [],
           },
         });
 
@@ -1401,7 +1401,7 @@ export function JsonRpcContextProvider({
           chainId,
           request: {
             method: DEFAULT_CIP34_METHODS.CARDANO_GET_NETWORK_ID,
-            params: [address],
+            params: [],
           },
         });
 
@@ -1422,7 +1422,7 @@ export function JsonRpcContextProvider({
           chainId,
           request: {
             method: DEFAULT_CIP34_METHODS.CARDANO_GET_USED_ADDRESSES,
-            params: [address],
+            params: [],
           },
         });
 
@@ -1443,7 +1443,7 @@ export function JsonRpcContextProvider({
           chainId,
           request: {
             method: DEFAULT_CIP34_METHODS.CARDANO_GET_UNUSED_ADDRESSES,
-            params: [address],
+            params: [],
           },
         });
 
@@ -1464,7 +1464,7 @@ export function JsonRpcContextProvider({
           chainId,
           request: {
             method: DEFAULT_CIP34_METHODS.CARDANO_GET_CHANGE_ADDRESS,
-            params: [address],
+            params: [],
           },
         });
 
@@ -1485,7 +1485,7 @@ export function JsonRpcContextProvider({
           chainId,
           request: {
             method: DEFAULT_CIP34_METHODS.CARDANO_GET_REWARD_ADDRESS,
-            params: [address],
+            params: [],
           },
         });
 
@@ -1506,7 +1506,7 @@ export function JsonRpcContextProvider({
           chainId,
           request: {
             method: DEFAULT_CIP34_METHODS.CARDANO_GET_REWARD_ADDRESSES,
-            params: [address],
+            params: [],
           },
         });
 
